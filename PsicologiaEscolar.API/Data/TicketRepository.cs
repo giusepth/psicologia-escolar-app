@@ -117,16 +117,16 @@ namespace PsicologiaEscolar.API.Data
 
         public bool ActualizarTicket(Ticket ticket)
         {
-            using (SqlConnection conn = new SqlConnection(_connectionString))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("sp_ActualizarTicket", conn))
+                using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
+                    SqlCommand cmd = new SqlCommand("sp_ActualizarTicket", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@TicketId", ticket.TicketId);
-                    cmd.Parameters.AddWithValue("@Estado", ticket.Estado);
-                    cmd.Parameters.AddWithValue("@Respuesta", string.IsNullOrEmpty(ticket.Respuesta) ? DBNull.Value : ticket.Respuesta);
-                    cmd.Parameters.AddWithValue("@FechaRespuesta", ticket.FechaRespuesta ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Estado", ticket.Estado ?? "Pendiente");
+                    cmd.Parameters.AddWithValue("@Respuesta", ticket.Respuesta ?? "");
 
                     conn.Open();
                     int filasAfectadas = cmd.ExecuteNonQuery();
@@ -134,8 +134,10 @@ namespace PsicologiaEscolar.API.Data
                     return filasAfectadas > 0;
                 }
             }
-
-           
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool EliminarTicket(int ticketId)
