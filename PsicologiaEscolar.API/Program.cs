@@ -10,6 +10,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<TicketRepository>();
+builder.Services.AddDistributedMemoryCache(); // Almacenamiento en memoria para sesiones
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tiempo de expiración de sesión
+    options.Cookie.HttpOnly = true;                 // Seguridad: acceso solo por HTTP
+    options.Cookie.IsEssential = true;              // Necesario para funcionamiento
+});
 
 var app = builder.Build();
 
@@ -19,6 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSession(); // Habilita el uso de sesiones
 
 app.UseAuthorization();
 

@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using PsicologiaEscolar.API.Data;
 using PsicologiaEscolar.API.Models;
+using PsicologiaEscolar.API.Filters;
 namespace PsicologiaEscolar.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize] 
+    [Autenticado] 
     public class TicketController : ControllerBase
     {
 
