@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets - PsyTrack</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h1>Esta es la página de tickets</h1>
+
+    <script>
+        // Verificar si hay token
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            // Si no hay token, redirige al login
+            alert("No estás autenticado. Redirigiendo al login...");
+            window.location.href = "index.html";
+        } else {
+            // Ejemplo de petición protegida al backend
+            fetch('/api/tickets', {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else if (response.status === 401) {
+                        // Token inválido o expirado
+                        alert("Sesión expirada. Redirigiendo al login...");
+                        window.location.href = "index.html";
+                    } else {
+                        throw new Error("Error al obtener tickets");
+                    }
+                })
+                .then(data => {
+                    console.log("Tickets recibidos:", data);
+                    // Aquí podrías mostrar los tickets en la página
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+</html>

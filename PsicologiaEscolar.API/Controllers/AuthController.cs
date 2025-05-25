@@ -8,7 +8,7 @@ namespace PsicologiaEscolar.API.Controllers
   [Route("api/[controller]")]
    public class AuthController : ControllerBase
    {
-     private readonly UsuarioRepository _usuarioRepository; // Creamos variable para guardar una intancia del reporsitorio, estos nos ayudara pra validar las credenciales de usuario
+     private readonly UsuarioRepository _usuarioRepository; 
 
       public AuthController(UsuarioRepository usuarioRepository)
       {

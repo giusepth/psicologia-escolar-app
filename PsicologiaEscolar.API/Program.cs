@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<UsuarioRepository>();
+builder.Services.AddScoped<TicketRepository>();
 
 var app = builder.Build();
 
@@ -20,6 +21,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+app.UseDefaultFiles();    // Busca index.html en wwwroot
+app.UseStaticFiles();     // Sirve archivos estáticos de la carpeta wwwroot
 
 app.MapControllers();
 
