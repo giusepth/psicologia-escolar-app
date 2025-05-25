@@ -1,22 +1,20 @@
 # API de Gestión de Tickets para Atención Psicológica Escolar
 
-## 📌 Descripción General
+##  Descripción General
 
 Este proyecto consiste en una API RESTful desarrollada en ASP.NET Core que permite la gestión de tickets de atención psicológica dentro de un entorno escolar. A través de esta solución, los docentes pueden registrar solicitudes dirigidas al área de psicología para dar seguimiento a estudiantes que requieren acompañamiento.
 
 La API permite crear, consultar, actualizar y eliminar tickets, asegurando así una trazabilidad clara y organizada de cada caso.
 
----
 
-## ❗ Planteamiento del Problema
+##  Planteamiento del Problema
 
 En el entorno escolar, la comunicación entre docentes y el equipo de psicología puede presentar desafíos logísticos, especialmente cuando se manejan múltiples casos simultáneamente. El registro de solicitudes suele depender de medios informales o no estructurados (como notas físicas, mensajes por redes sociales o correos electrónicos), lo que puede dar lugar a olvidos, demoras o pérdidas de información importante.
 
 Para resolver esta problemática, se propone la implementación de una API que estandarice y digitalice el proceso de solicitud de atención psicológica. Esto permitirá llevar un control centralizado de cada solicitud, registrar las respuestas ofrecidas y acceder al historial de seguimiento de forma ordenada y segura.
 
----
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 | Tecnología     | Uso en el Proyecto |
 |----------------|--------------------|
@@ -26,9 +24,8 @@ Para resolver esta problemática, se propone la implementación de una API que e
 | **Postman**      | Herramienta utilizada para probar y validar los endpoints de la API de forma visual y dinámica. |
 | **Git & GitHub** | Control de versiones y hospedaje del código fuente, facilitando la colaboración, historial de cambios y despliegue continuo. |
 
----
 
-## 🎯 Objetivos
+##  Objetivos
 
 ### Objetivo General
 
@@ -42,5 +39,4 @@ Desarrollar una API RESTful que permita la gestión eficiente de tickets de aten
 - Validar el correcto funcionamiento del API utilizando herramientas como Postman y Swagger para realizar pruebas de las rutas y verificar los datos enviados y recibidos.
 - Gestionar el código fuente del proyecto mediante Git y GitHub, asegurando un control de versiones adecuado y la posibilidad de seguimiento del desarrollo.
 
----
 
